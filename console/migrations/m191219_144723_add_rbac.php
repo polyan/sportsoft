@@ -26,7 +26,7 @@ class m191219_144723_add_rbac extends Migration
      */
     public function safeDown()
     {
-        $this->dropColumn(self::COLUMN_RBAC_ROLE, self::COLUMN_RBAC_ROLE);
+        $this->dropColumn(self::TABLE_USER, self::COLUMN_RBAC_ROLE);
     }
 
 }
