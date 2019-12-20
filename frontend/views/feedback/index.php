@@ -1,14 +1,16 @@
 <?php
 
 use common\models\Feedback;
+use common\widgets\phoneInput\PhoneInput;
+use yii\captcha\Captcha;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\widgets\ActiveForm;
 
 /**
  * @var $feedbackModel Feedback
  */
 
-echo "<br><br><br>";
 $form = ActiveForm::begin([
     'id' => 'feedback-form',
     'options' => [
@@ -16,9 +18,31 @@ $form = ActiveForm::begin([
     ],
 ]);
 echo Html::tag('h1', 'Форма обратной связи');
-echo $form->field($feedbackModel, 'name')->textInput();
-echo $form->field($feedbackModel, 'surname')->textInput();
-echo $form->field($feedbackModel, 'email')->textInput();
+echo $form->field($feedbackModel, 'name')->textInput([
+    'placeholder' => 'Введите имя',
+    'class' => 'input-name form-control'
+]);
+echo $form->field($feedbackModel, 'surname')->textInput([
+    'placeholder' => 'Введите фамилию',
+    'class' => 'input-name form-control']);
+echo $form->field($feedbackModel, 'email')->textInput([
+    'placeholder' => 'Введите email',
+    'class' => 'input-email form-control'
+]);
+try {
+    echo $form->field($feedbackModel, 'phone')->widget(PhoneInput::class, [
+        'options' => [
+            'placeholder' => 'Введите мобильный телефон',
+            'class' => 'enter-form__mobile-field form-control input-phone',
+        ]
+    ]);
+} catch (Exception $e) {
 
+}
+echo $form->field($feedbackModel, 'verifyCode')->widget(Captcha::class);
+echo $form->field($feedbackModel, 'message')->textarea([
+    'rows' => 10,
+    'placeholder' => 'Введите сообщение'
+]);
 echo Html::submitButton('Отправить форму', ['class' => 'btn btn-primary']);
 ActiveForm::end();

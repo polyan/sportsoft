@@ -11,9 +11,15 @@ use Yii;
  * @property string|null $email
  * @property string|null $phone
  * @property string|null $message
+ * @property string $verifyCode
  */
 class Feedback extends \yii\db\ActiveRecord
 {
+    /**
+     * @var string
+     */
+    public $verifyCode;
+
     /**
      * {@inheritdoc}
      */
@@ -28,7 +34,7 @@ class Feedback extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['name', 'surname'], 'required'],
+            [['name', 'surname', 'verifyCode'], 'required'],
             [['name', 'surname'],
                 'string',
                 'min' => 3,
@@ -36,13 +42,14 @@ class Feedback extends \yii\db\ActiveRecord
             ],
             [['name', 'surname'],
                 'match',
-                'pattern' => '/^[a-zA-Zа-яА-Я\s]+$/',
+                'pattern' => '/^[a-zа-яё\s]+$/iu',
                 'message' => 'Только буквы',
             ],
             [['message'], 'string', 'min' => 100, 'max' => 255],
             [['email'], 'email'],
             [['email'], 'string', 'max' => 255],
             [['phone'], 'string', 'max' => 15],
+            ['verifyCode', 'captcha']
         ];
     }
 
@@ -53,11 +60,12 @@ class Feedback extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'surname' => 'Surname',
+            'name' => 'Имя',
+            'surname' => 'Фамилия',
             'email' => 'Email',
-            'phone' => 'Phone',
-            'message' => 'Message',
+            'phone' => 'Телефон',
+            'message' => 'Сообщение',
+            'verifyCode' => "Введите код с картинки:"
         ];
     }
 }
