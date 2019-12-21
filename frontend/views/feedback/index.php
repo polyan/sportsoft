@@ -17,7 +17,7 @@ $form = ActiveForm::begin([
         'enctype' => 'multipart/form-data',
     ],
 ]);
-echo Html::tag('h1', 'Форма обратной связи');
+echo "<h1><?= Html::encode($this->title) ?></h1>";
 echo $form->field($feedbackModel, 'name')->textInput([
     'placeholder' => 'Введите имя',
     'class' => 'input-name form-control'

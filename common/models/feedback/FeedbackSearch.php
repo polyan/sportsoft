@@ -1,6 +1,9 @@
 <?php namespace common\models\feedback;
 
+use common\models\User;
+use Yii;
 use yii\data\ActiveDataProvider;
+use yii\helpers\ArrayHelper;
 
 class FeedbackSearch extends Feedback
 {
@@ -16,12 +19,20 @@ class FeedbackSearch extends Feedback
         ];
     }
 
-    public function search($params)
+    public function search($params, $activeUsers)
     {
-        $query = Feedback::find();
-
-        $query->joinWith(['user']);
-
+        $newArray = [];
+        if ($activeUsers) {
+            $sqlStr = "SELECT user_id FROM session WHERE last_write > UNIX_TIMESTAMP() - 600";
+            $result = Yii::$app->db->createCommand($sqlStr)->queryAll();
+            foreach ($result as $k => $v) {
+                if ($v[User::SESSION_USER_ID_NAME]) {
+                    $newArray[] = $v[User::SESSION_USER_ID_NAME];
+                }
+            }
+        }
+        $query = Feedback::find()
+            ->joinWith(['user']);
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
@@ -50,7 +61,8 @@ class FeedbackSearch extends Feedback
         ])
             ->andFilterWhere(['like', 'date_created', $this->date_created])
             ->andFilterWhere(['like', 'surname', $this->surname])
-            ->andFilterWhere(['like', 'email', $this->email]);
+            ->andFilterWhere(['like', 'feedback.email', $this->email])
+            ->andFilterWhere(['in', 'user.id', $newArray]);
 
         return $dataProvider;
     }

@@ -5,16 +5,25 @@ use Yii;
 
 class FeedbackController extends BackendController
 {
+    const VIEW_INDEX = "index";
+    const VIEW_ACTIVE = "active";
+
     /**
+     * @param bool $activeUsers
+     *
      * @return string
      */
-    public function actionIndex()
+    public function actionIndex($activeUsers = false)
     {
+        $view = self::VIEW_INDEX;
+        if ($activeUsers) {
+            $view = self::VIEW_ACTIVE;
+        }
+
         $searchModel = new FeedbackSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $activeUsers);
 
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-        return $this->render('index', [
+        return $this->render($view, [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);

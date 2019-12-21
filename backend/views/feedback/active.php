@@ -10,16 +10,16 @@ use yii\web\View;
 /* @var $this View */
 /* @var $searchModel FeedbackSearch */
 /* @var $dataProvider ActiveDataProvider */
-$this->title = 'Список отправленных форм';
+$this->title = 'Список отправленных форм активных на данный момент пользователей';
 $this->params['breadcrumbs'][] = $this->title;
 FeedbackAsset::register($this);
+
 ?>
 <?= Html::a(
-    'Список отправленных форм активных на данный момент пользователей',
-    ['', 'activeUsers' => true],
+    'Список отправленных форм',
+    [''],
     ['class' => 'btn btn-primary']
 ) ?>
-
 <div class="feedback-index">
     <h1><?= Html::encode($this->title) ?></h1>
     <?= $this->render('_send_form', [
