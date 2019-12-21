@@ -1,0 +1,192 @@
+#login-form {
+    display: block;
+    position: absolute;
+    width: 250px;
+    top: 50%;
+    margin-top: -300px;
+    left: 50%;
+    margin-left: -125px;
+    min-height: 400px;
+    background: white;
+    padding: 20px;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, .1);
+}
+
+.container {
+    background: none !important;
+}
+
+#login-btn {
+    display: block;
+    padding: 5px;
+    width: 210px;
+    height: 30px;
+    background: #58ba52;
+    color: white;
+    border: none;
+    bottom: 20px;
+    left: 20px;
+}
+
+
+#user-img {
+    display: block;
+    margin: 0 auto;
+    width: 210px;
+    height: 210px;
+    overflow: hidden;
+    margin-top: -40px;
+    position: relative;
+    background-size: cover!important;
+}
+
+#plushka, #plushka-2 {
+    position: absolute;
+    display: none;
+    height: 30px;
+    width: 40px;
+    border-radius: 35% 35% 50% 50%;
+    background: black;
+    z-index: 10;
+    box-shadow: 45px 0 0 black, 1px 2px 2px rgba(0,0,0,.3), 46px 2px 2px rgba(0,0,0,.3);
+    opacity:.9;
+
+}
+
+#plushka {
+    top: 95px;
+    left: 14px;
+    animation:  plushka .5s ;
+}
+
+#plushka-2 {
+    top: 122px;
+    left: 108px;
+    animation:  plushka-2 .5s ;
+  }
+
+#plushka:after, #plushka-2:after {
+    content: '';
+    height: 2px;
+    width: 85px;
+    background: black;
+    position: absolute;
+    margin-top: 3px;
+}
+
+@keyframes plushka {
+    0%   {  left: 125px; }
+    100% {  left: 14px; }
+}
+
+@keyframes plushka-2 {
+    0%   {  left: 125px; }
+    100% {  left: 108px; }
+}
+
+#plushka-login {
+    top: 98px;
+    left: 25px;
+    position: absolute;
+    display: block;
+    z-index: 9;
+}
+
+#plushka-login-2 {
+    top: 125px;
+    left: 115px;
+    position: absolute;
+    display: block;
+    z-index: 9;
+}
+
+#plushka-login:after, #plushka-login-2:after {
+    margin-top: 2px;
+    content: '';
+    position: absolute;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    background: black;
+    animation: plushka-login 1.5s  infinite;
+}
+
+#plushka-login-2:after {
+    box-shadow: 50px 0 0 black;
+}
+
+#plushka-login:after {
+    box-shadow: 44px 0 0 black;
+}
+
+#login-len {
+    display: block;
+    max-width: 210px;
+    position: absolute;
+    top:-300px;
+}
+
+
+#password-reset {
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    border: none;
+}
+
+.naming {
+    background: none!important;
+    text-align: center!important;
+}
+
+.naming h1 {
+    width: 100%;
+    display: block;
+}
+
+.head_for_page i {
+    background: none!important;
+}
+
+#request-password-reset  {
+    display: block;
+    position: absolute;
+    width: 250px;
+    top: 50%;
+    margin-top: -300px;
+    left: 50%;
+    margin-left: -125px;
+    min-height: 250px;
+    background: white;
+    padding: 20px;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, .1);
+}
+
+.well {
+    background: white!important;
+    border:none!important;
+    box-shadow: none!important;
+    padding: 0!important;
+}
+
+#request-password-reset .col-lg-6 {
+    width: 100%;
+}
+
+#request-password-reset .btn {
+   margin: 0 auto!important;
+}
+
+.container {
+    box-shadow: none!important;
+}
+
+#request-password-reset .btn-blue {
+    background: lightgreen;
+}
+
+#in-cabinet-login {
+    padding: 5px;
+    background: #e8f0fe;
+}

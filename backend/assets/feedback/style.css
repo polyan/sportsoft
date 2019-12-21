@@ -1,0 +1,11 @@
+.feedback-row {
+    cursor: pointer;
+}
+.feedback-row:hover td{
+    background-color: lightblue !important;
+}
+
+.text-wrap {
+    max-width: 100px;
+    overflow: auto;
+}

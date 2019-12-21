@@ -25,6 +25,7 @@ class m191219_153827_create_feedback_table extends Migration
             'email' => $this->string(255),
             'phone' => $this->string(15),
             'message' => $this->string(255),
+            'date_created' => $this->timestamp(),
         ]);
     }
 

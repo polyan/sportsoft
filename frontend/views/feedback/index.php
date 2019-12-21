@@ -1,6 +1,6 @@
 <?php
 
-use common\models\Feedback;
+use common\models\feedback\Feedback;
 use common\widgets\phoneInput\PhoneInput;
 use yii\captcha\Captcha;
 use yii\helpers\Html;
@@ -10,7 +10,7 @@ use yii\widgets\ActiveForm;
 /**
  * @var $feedbackModel Feedback
  */
-
+$this->title = 'Форма обратной связи';
 $form = ActiveForm::begin([
     'id' => 'feedback-form',
     'options' => [
@@ -39,7 +39,9 @@ try {
 } catch (Exception $e) {
 
 }
-echo $form->field($feedbackModel, 'verifyCode')->widget(Captcha::class);
+echo $form->field($feedbackModel, 'verifyCode')->widget(Captcha::class, [
+    'captchaAction' => 'feedback/captcha'
+]);
 echo $form->field($feedbackModel, 'message')->textarea([
     'rows' => 10,
     'placeholder' => 'Введите сообщение'

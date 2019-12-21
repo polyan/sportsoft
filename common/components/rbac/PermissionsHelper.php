@@ -5,11 +5,11 @@ use Yii;
 class PermissionsHelper
 {
     const ADMIN = 'admin';
-    const CABINET = 'cabinet';
+//    const CABINET = 'cabinet';
 
-    const FUNCTION_CAN_SEE_B2B_RETAIL_PRICE = 'canSeeB2BRetailPrice';
-    const FUNCTION_CAN_CHANGE_PRICE = 'canChangePrice';
-    const FUNCTION_CAN_SET_ALL_COUNT = 'canSetAllCount';
+//    const FUNCTION_CAN_SEE_B2B_RETAIL_PRICE = 'canSeeB2BRetailPrice';
+//    const FUNCTION_CAN_CHANGE_PRICE = 'canChangePrice';
+//    const FUNCTION_CAN_SET_ALL_COUNT = 'canSetAllCount';
 
     /**
      * @param string $controller

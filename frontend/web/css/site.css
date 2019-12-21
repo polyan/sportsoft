@@ -95,6 +95,14 @@ a.desc:after {
     margin: 0 0 15px 0;
 }
 
+.leave-feedback {
+    font-size: 20px;
+}
+.leave-feedback:after {
+    font-family: 'Glyphicons Halflings', serif;
+    content: "\e093";
+}
+
 /* align the logout "link" (button in form) of the navbar */
 .nav li > form > button.logout {
     padding: 15px;
@@ -118,3 +126,5 @@ a.desc:after {
 .nav > li > form > button.logout:focus {
     outline: none;
 }
+
+

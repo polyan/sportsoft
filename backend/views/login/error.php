@@ -1,11 +1,11 @@
 <?php
 
+use yii\helpers\Html;
+
 /* @var $this yii\web\View */
 /* @var $name string */
 /* @var $message string */
 /* @var $exception Exception */
-
-use yii\helpers\Html;
 
 $this->title = $name;
 ?>
@@ -18,10 +18,10 @@ $this->title = $name;
     </div>
 
     <p>
-        The above error occurred while the Web server was processing your request.
+        Данная ошибка возникла, когда сервер обрабатывал Ваш запрос.
     </p>
     <p>
-        Please contact us if you think this is a server error. Thank you.
+        Пожалуйста, свяжитесь с нами, если Вы думаете, что это ошибка сервера. Спасибо.
     </p>
 
 </div>
