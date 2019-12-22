@@ -60,9 +60,6 @@
             "deployment_key": "/tmp/.chef/files/id_rsa",
             "known_hosts": [ "github.com" ]
         },
-        "git": {
-            "repository": "git@github.com:polyan/sportsoft.git"
-        },
         "php": {
             "pools": [
                 {
@@ -84,7 +81,7 @@
                 "template_local": false,
                 "variables" : {
                     "url" : "test",
-                    "root" : "/home/php-app/www",
+                    "root" : "/home/php-app/www/frontend/web",
                     "access_log": "/home/php-app/log/frontend.local-access.log",
                     "error_log": "/home/php-app/log/frontend.local-error.log",
                     "socket" : "/var/run/php-fpm.php-app.sock",
@@ -99,12 +96,12 @@
         "mysql": {
             "root_connection": { "host": "127.0.0.1", "username": "root", "password": "1212" },
             "databases": [
-                {"name": "test", "username": "test", "password": "test"}
+                {"name": "test", "username": "root", "password": ""}
             ]
         },
         "composer": {
             "enable": true,
-            "github_auth_token": "",
+            "github_auth_token": "055d61f7b5d8f512ac5f6259a3205c08997bf755",
             "dev": true,
             "global_requirements": [
                 "fxp/composer-asset-plugin:1.0.0-beta3",
