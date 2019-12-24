@@ -37,8 +37,10 @@ abstract class BaseController extends Controller
 
     public function beforeAction($action)
     {
+
         if (Yii::$app->id == self::BACKEND_APP && Yii::$app->user->isGuest) {
-            if ($this->id != 'login') {
+            if ($this->loginControllerName != 'login') {
+//                var_dump($this->id, $this->loginUrl, $this->loginControllerName);die();
                 $loginUrl = $this->loginUrl . "?referer=" . urlencode(Url::to());
 
                 return Yii::$app->getResponse()->redirect($loginUrl)->send();
