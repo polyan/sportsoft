@@ -13,6 +13,7 @@ return [
             'class' => 'yii\caching\FileCache',
         ],
         'assetManager' => [
+            'forceCopy' => true,
             'bundles' => [
                 'yii\web\JqueryAsset' => [
                     'sourcePath' => null,   // do not publish the bundle
